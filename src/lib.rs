@@ -24,6 +24,14 @@
 //! tx.send(42).unwrap();
 //! assert_eq!(rx.recv().unwrap(), 42);
 //! ```
+#![cfg_attr(feature = "sgx", no_std)]
+
+#[cfg(feature = "sgx")]
+#[macro_use]
+extern crate sgx_tstd as std;
+
+#[cfg(feature = "sgx")]
+use std::prelude::v1::*;
 
 #[cfg(feature = "select")]
 pub mod select;

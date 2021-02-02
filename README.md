@@ -42,6 +42,11 @@ To use Flume, place the following line under the `[dependencies]` section in you
 flume = "x.y"
 ```
 
+if use flume in SGX (based on rust-sgx-sdk), place the following line under the `[dependencies]` section in your `Cargo.toml` and prepare incubator-teaclave-sgx-sdk envirenments according to flume's `Cargo.toml`:
+```
+flume = { git = "https://github.com/ShuochengWang/flume.git", branch = "sgx", default-features = false, features = ["sgx"]  }
+```
+
 ## [Benchmarks](https://what-if.xkcd.com/147/)
 
 Although Flume has its own extensive benchmarks, don't take it from here that Flume is quick.

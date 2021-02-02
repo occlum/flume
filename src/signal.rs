@@ -1,4 +1,7 @@
+#[cfg(not(feature = "sgx"))]
 use std::{thread::{self, Thread}, time::Duration, any::Any};
+#[cfg(feature = "sgx")]
+use std::{thread::{self, SgxThread as Thread}, time::Duration, any::Any};
 
 pub trait Signal: Send + Sync + 'static {
     /// Fire the signal, returning whether it is a stream signal. This is because streams do not
